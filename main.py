@@ -48,7 +48,6 @@ def create_lite_model(model_name: str = "facebook/sam-audio-small", token: Optio
         processor: SAM Audio processor
     """
     from sam_audio import SAMAudio, SAMAudioProcessor
-    from huggingface_hub import login
     
     print(f"\n{'='*60}")
     print(f"Loading {model_name}...")

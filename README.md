@@ -18,10 +18,14 @@ cd sam-audio-local
 pip install torch torchaudio python-dotenv huggingface-hub
 pip install git+https://github.com/facebookresearch/sam-audio
 ```
-Add a .env file with the following:
-HF_TOKEN=your_token_here
+
 
 You will ned to request and be granted access to Sam Audio on Huggingface: https://huggingface.co/facebook/sam-audio-base
+
+You will also need a Huggingface token, once you have it run:
+```bash
+hf auth login
+```
 
 ### Protobuf Fix (Required)
 
