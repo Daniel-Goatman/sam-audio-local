@@ -15,19 +15,29 @@ Memory-optimized command-line tool for text-prompted audio separation using [SAM
 ```bash
 git clone https://github.com/yourusername/sam-audio-local.git
 cd sam-audio-local
-pip install torch torchaudio sam-audio python-dotenv huggingface-hub
+pip install torch torchaudio python-dotenv huggingface-hub
+pip install git+https://github.com/facebookresearch/sam-audio
 ```
+Add a .env file with the following:
+HF_TOKEN=your_token_here
+
+You will ned to request and be granted access to Sam Audio on Huggingface: https://huggingface.co/facebook/sam-audio-base
 
 ### Protobuf Fix (Required)
 
 SAM Audio has protobuf compatibility issues. Fix with:
 
 ```bash
+pip install --upgrade protobuf
+
+# Tweak the directory as needed
+cp ../usr/local/lib/python3.11/dist-packages/google/protobuf/internal/builder.py ./
+
 # Downgrade protobuf
 pip install protobuf==3.19.4
 
-# Login to HuggingFace (add a .env and save your token as HF_TOKEN=your_token)
-huggingface-cli login
+cp ./builder.py ../usr/local/lib/python3.11/dist-packages/google/protobuf/internal/
+
 ```
 
 ## Usage

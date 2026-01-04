@@ -54,7 +54,7 @@ def create_lite_model(model_name: str = "facebook/sam-audio-small", token: Optio
     print(f"Loading {model_name}...")
     print(f"{'='*60}")
     
-    login(token=os.getenv["HF_TOKEN"])
+    login(token=os.getenv("HF_TOKEN"))
     
     # Load model (token is now in HF cache)
     model = SAMAudio.from_pretrained(model_name)
@@ -357,9 +357,9 @@ def interactive_mode():
     
     # Get input file
     while True:
-        input_path = input("Enter audio file path [./New Recording 5.m4a]: ").strip().strip('"').strip("'")
+        input_path = input("Enter audio file path [./audio.mp3]: ").strip().strip('"').strip("'")
         if not input_path:
-            input_path = "./New Recording 5.m4a"
+            input_path = "./audio.mp3"
         if Path(input_path).exists():
             break
         print(f"Error: File not found. Please try again.")
